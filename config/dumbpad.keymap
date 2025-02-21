@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define TIMEOUT 50
+
 #define DEFAULT 0
 #define ADJUST  1
 
@@ -30,16 +31,16 @@
     *  ------------------
     */
 
-    behaviors {
-        pht: positional_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <400>;
-            quick-tap-ms = <200>;
-            bindings = <&mo>, <&kp>;
-        };
-    };
+//    behaviors {
+//        pht: positional_hold_tap {
+//            compatible = "zmk,behavior-hold-tap";
+//            #binding-cells = <2>;
+//            flavor = "hold-preferred";
+//            tapping-term-ms = <400>;
+//            quick-tap-ms = <200>;
+//            bindings = <&mo>, <&kp>;
+//        };
+//    };
 
 
 //     combos {
@@ -73,16 +74,18 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer {
+            display-name = "default layer"
             bindings = <
                             &kp C_PREV &kp C_PP     &kp C_NEXT     &kp PSCRN
                             &kp N7     &kp N8       &kp N9         &kp DEL
                             &kp N4     &kp N5       &kp N6         &kp HOME
-                &kp C_MUTE  &kp N1     &kp N2       &kp N3         &pht ADJUST N0
+                &kp C_MUTE  &kp N1     &kp N2       &kp N3         &kp N0
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_ZOOM_OUT C_AC_ZOOM_IN>;
         };
         
         adjust_layer {
+            display-name = "adjust layer"
             bindings = <
                             &kp ESC    &none         &bt BT_CLR      &kp DEL
                             &none      &none         &none           &kp KP_MINUS
